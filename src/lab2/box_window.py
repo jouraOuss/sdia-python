@@ -45,7 +45,6 @@ class BoxWindow:
         return True
 
     def dimension(self):
-<<<<<<< HEAD
         """[summary]
         """
         n = len(self.bounds)
@@ -61,14 +60,6 @@ class BoxWindow:
             l = args[i][1] - args[i][0]
             v = v * l
         return v
-=======
-        """[summary]"""
-        return
-
-    def volume(self):
-        """[summary]"""
-        return
->>>>>>> b3c697b0cef6e29f9d6feff78d7cc83350a3b846
 
     def indicator_function(self, args):
         """[summary]
@@ -124,7 +115,6 @@ class UnitBoxWindow(BoxWindow):
             dimension ([type]): [description]
             center ([type], optional): [description]. Defaults to None.
         """
-<<<<<<< HEAD
         L = []
         for i in range(dimension):
             L.append([center[i] - 0.5, center[i] + 0.5])
@@ -156,6 +146,3 @@ class BallWindow:
         n = len(self.center)
         R = self.radius
         return (pi) ** (n / 2) * R ** (n) / gamma(n / 2 + 1)
-=======
-        super(UnitBoxWindow, self).__init__(bounds)
->>>>>>> b3c697b0cef6e29f9d6feff78d7cc83350a3b846
