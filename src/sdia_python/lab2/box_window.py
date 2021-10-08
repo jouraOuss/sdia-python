@@ -1,4 +1,4 @@
-from lab2.utils import get_random_number_generator
+from sdia_python.lab2.utils import get_random_number_generator
 import numpy as np
 from math import *
 
