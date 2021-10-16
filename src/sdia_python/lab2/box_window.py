@@ -1,78 +1,84 @@
 from sdia_python.lab2.utils import get_random_number_generator
 import numpy as np
-from math import *
 
 
 class BoxWindow:
-    """[summary]"""
+    """Represents a box in any dimension by writing it as a product of segments."""
 
-    def __init__(self, args):
-        """[summary]
+    def __init__(self, bounds):
+        """Create a box window by initializing the bounds with as input parameters an np.array. The bounds must be given by np.array such that for each segment a <= b
 
         Args:
-            args ([type]): [description]
+            bounds ([np.array]): An Array containing the bounds for each dimension
         """
-        self.bounds = args
+        self.bounds = bounds
 
     def __str__(self):
         r"""BoxWindow: :math:`[a_1, b_1] \times [a_2, b_2] \times \cdots`
 
         Returns:
-            [type]: [description]
+            str : string representation of the box window
         """
         args = self.bounds
-        hamza = ""
+        ch = ""
         for i in range(0, len(args)):
-            hamza = hamza + str(args[i])
+            ch = ch + str(args[i])
             if i < len(args) - 1:
-                hamza += " x "
+                ch += " x "
 
-        return "BoxWindow : " + hamza
+        return "BoxWindow : " + ch
 
     def __len__(self):
-        args = self.bounds
-        return len(args)
+        """ Returns the dimension of the box.
+        Args : type(int) : dimension of the box.
+        """
+        return len(self.bounds)
 
-    def __contains__(self, args):
-        Box_args = self.bounds
-        for i in range(0, len(arg)):
-            a = args[i][0]
-            b = args[i][1]
-            c = box_args[i][0]
-            d = box_args[i][1]
+    def __contains__(self, sub_box):
+        """ Return True if the box contains a given sub_box  
+        Args : sub_box : type(np.array) : The sub_box to be tested
+        """
+        Box_bounds = self.bounds
+        sub_box_bounds = sub_box.bounds
+        if len(sub_box) != len(self):
+            raise ValueError("the size of the sub_box is different from that of the box")
+        for i in range(0, len(point)):
+            a = sub_box_bounds[i][0]
+            b = sub_box_bounds[i][1]
+            c = Box_bounds[i][0]
+            d = Box_bounds[i][1]
             if a < c or d < b:
                 return False
         return True
 
     def dimension(self):
-        """[summary]
+        """Returns the dimension of our box 
+        Args : type(int) The dimension of the box 
         """
-        n = len(self.bounds)
-        return 2 * n
+        return len(self)
+         
 
     def volume(self):
-        """[summary]
+        """Computes the volume of our box, by mutliplying the difference between the arguments of every subsegment
         """
-        n = len(self.bounds)
-        args = self.bounds
-        V = 1
-        for i in range(0, n):
-            l = args[i][1] - args[i][0]
-            v = v * l
-        return v
-
-    def indicator_function(self, args):
-        """[summary]
+        
+        v = 0 if len(self) == 0 else 1
+        v = np.prod(np.diff(self.bounds, axis=1))
+        
+    def indicator_function(self, point):
+        """Return True if a point is contained in the box
 
         Args:
-            args ([type]): [description]
+            point (np.array): The point to be tested
         """
-        Box_args = self.bounds
-        n = len(Box_args)
+        Box_bounds = self.bounds
+        n = len(Box_bounds)
+        if len(point) != len(self):
+            raise ValueError("the size of the point is different from the len of the box")
         for i in range(0, n):
-            a = Box_args[i][1]
-            b = Box_args[i][0]
-            if args[i] < b or arg[i] > a:
+            a = Box_bounds[i][1]
+            b = Box_bounds[i][0]
+            if point[i] < b or point[i] > a:
                 return False
         return True
 
@@ -93,10 +99,10 @@ class BoxWindow:
         return L
 
     def center(self):
-        """[summary]
+        """Returns  a list containing the center of every segment of the box
 
         Returns:
-            [type]: [description]
+            Center type(list): a list of numbers
         """
         center = []
         n = len(self.bounds)
@@ -109,40 +115,18 @@ class BoxWindow:
 
 class UnitBoxWindow(BoxWindow):
     def __init__(self, center, dimension):
-        """[summary]
+        """Represents a box in any dimension. The lenght of every segment in the box is equal to 1, centered on `center`
 
         Args:
-            dimension ([type]): [description]
-            center ([type], optional): [description]. Defaults to None.
+            dimension (int): the dimension of the box 
+            center (list): List containing the center of every segment in the box. Defaults to None.
         """
         L = []
-        for i in range(dimension):
-            L.append([center[i] - 0.5, center[i] + 0.5])
+        if center is None : 
+            center = np.zeros(dimension)
+        else :
+            for i in range(dimension):
+                L.append([center[i] - 0.5, center[i] + 0.5])
         super().__init__(L)
 
 
-class BallWindow:
-    def __init__(self, center, radius):
-        self.center = center
-        self.radius = radius
-
-    def dimension(self):
-        return len(self.center)
-
-    def __contains__(self, point):
-        s = 0
-        for i in range(dimension):
-            s += (point[i] - self.center[i]) ** 2
-        if s <= (self.radius) ** 2:
-            return True
-        return False
-
-    def area(self):
-        n = len(self.center)
-        R = self.radius
-        return 2 * (pi) ** (n / 2) * R ** (n - 1) / gamma(n / 2)
-
-    def volume(self):
-        n = len(self.center)
-        R = self.radius
-        return (pi) ** (n / 2) * R ** (n) / gamma(n / 2 + 1)
