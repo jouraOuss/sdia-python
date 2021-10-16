@@ -89,11 +89,12 @@ class BoxWindow:
             n (int, optional): [description]. Defaults to 1.
             rng ([type], optional): [description]. Defaults to None.
         """
+        rng = get_random_number_generator
         n = len(self.bounds)
         args = self.bounds
         L = []
         for i in range(0, n):
-            a = random.uniform(args[i][0], args[i][1])
+            a = rng.uniform(args[i][0], args[i][1])
             L.append(a)
         L = np.array(L)
         return L
