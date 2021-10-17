@@ -1,15 +1,10 @@
 import numpy as np
 from math import gamma
 
-<<<<<<< HEAD
 
 class BallWindow:
     """class BallWindow contains balls defined by centers and radius"""
 
-=======
-class BallWindow:
-    """class BallWindow contains balls defined by centers and radius"""
->>>>>>> 4f0a568c987282d6eff188f28346c6a6538a43a0
     def __init__(self, center, radius):
         """initialization
         Args:
@@ -26,11 +21,7 @@ class BallWindow:
             assert len(center) > 0
         except:
             print("Enter a valid center")
-<<<<<<< HEAD
         self.center = np.array(center, dtype=np.float32)
-=======
-        self.center = np.array(center, dtype = np.float32)
->>>>>>> 4f0a568c987282d6eff188f28346c6a6538a43a0
         self.radius = radius
 
     def __str__(self):
@@ -51,15 +42,9 @@ class BallWindow:
 
     def indicator(self, point):
         """ Returns True if a point of interest is inside the ball window.
-<<<<<<< HEAD
         Args :
             point : type(float array) : coordinates of the point test.
         Returns :
-=======
-        Args : 
-            point : type(float array) : coordinates of the point test.
-        Returns : 
->>>>>>> 4f0a568c987282d6eff188f28346c6a6538a43a0
             True if the point of interest is inside the ball window
         """
         try:
@@ -68,11 +53,6 @@ class BallWindow:
             print("dimension error")
         return np.sum((point - self.center) ** 2) <= self.radius ** 2
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 4f0a568c987282d6eff188f28346c6a6538a43a0
     def dimension(self):
         """ball dimensions
         Returns:
@@ -82,11 +62,7 @@ class BallWindow:
 
     def volume(self):
         """ Returns the value of the volume of the ball window
-<<<<<<< HEAD
         Args  :
-=======
-        Args  : 
->>>>>>> 4f0a568c987282d6eff188f28346c6a6538a43a0
             radius : type(float) : the radius of the ball window.
             center : type(float array) : coordinates of the center of the ball window.
         Returns :
@@ -98,7 +74,6 @@ class BallWindow:
             / (gamma(self.dimension() / 2 + 1))
         )
 
-<<<<<<< HEAD
 
 class UnitBallWindow(BallWindow):
     """representing a ball of radius==1
@@ -107,11 +82,3 @@ class UnitBallWindow(BallWindow):
     def __init__(self, center):
 
         super().__init__(center, radius=1)
-=======
-class UnitBallWindow(BallWindow):
-    """representing a ball of radius==1
-    """
-    def __init__(self, center):
-
-        super().__init__(center, radius=1)
->>>>>>> 4f0a568c987282d6eff188f28346c6a6538a43a0
