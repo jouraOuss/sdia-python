@@ -7,6 +7,10 @@ class BoxWindow:
 
     def __init__(self, bounds):
         """Create a box window by initializing the bounds with as input parameters an np.array. The bounds must be given by np.array such that for each segment a <= b
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4f0a568c987282d6eff188f28346c6a6538a43a0
         Args:
             bounds ([np.array]): An Array containing the bounds for each dimension
         """
@@ -14,6 +18,10 @@ class BoxWindow:
 
     def __str__(self):
         r"""BoxWindow: :math:`[a_1, b_1] \times [a_2, b_2] \times \cdots`
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4f0a568c987282d6eff188f28346c6a6538a43a0
         Returns:
             str : string representation of the box window
         """
@@ -30,10 +38,17 @@ class BoxWindow:
         """ Returns the number of points in the box.
         Args : type(int) : dimension of the box.
         """
+<<<<<<< HEAD
         return 2 * len(self.bounds)
 
     def __contains__(self, sub_box):
         """ Return True if the box contains a given sub_box
+=======
+        return 2*len(self.bounds)
+
+    def __contains__(self, sub_box):
+        """ Return True if the box contains a given sub_box  
+>>>>>>> 4f0a568c987282d6eff188f28346c6a6538a43a0
         Args : sub_box : type(np.array) : The sub_box to be tested
         """
         Box_bounds = self.bounds
@@ -52,19 +67,36 @@ class BoxWindow:
         return True
 
     def dimension(self):
+<<<<<<< HEAD
         """Returns the dimension of our box
         Args : type(int) The dimension of the box
         """
         return len(self.bounds)
+=======
+        """Returns the dimension of our box 
+        Args : type(int) The dimension of the box 
+        """
+        return len(self.bounds)
+         
+>>>>>>> 4f0a568c987282d6eff188f28346c6a6538a43a0
 
     def volume(self):
         """Computes the volume of our box, by mutliplying the difference between the arguments of every subsegment
         """
+<<<<<<< HEAD
 
         return np.prod(np.diff(self.bounds, axis=1))
 
     def indicator_function(self, point):
         """Return True if a point is contained in the box
+=======
+        
+        return np.prod(np.diff(self.bounds, axis=1))
+    
+    def indicator_function(self, point):
+        """Return True if a point is contained in the box
+
+>>>>>>> 4f0a568c987282d6eff188f28346c6a6538a43a0
         Args:
             point (np.array): The point to be tested
         """
@@ -83,6 +115,10 @@ class BoxWindow:
 
     def rand(self, n=1, rng=None):
         """Generate ``n`` points uniformly at random inside the :py:class:`BoxWindow`.
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4f0a568c987282d6eff188f28346c6a6538a43a0
         Args:
             n (int, optional): [description]. Defaults to 1.
             rng ([type], optional): [description]. Defaults to None.
@@ -92,15 +128,23 @@ class BoxWindow:
         for i in range(n):
             l = []
             for i in range(0, len(self.bounds)):
+<<<<<<< HEAD
                 a = (
                     self.bounds[j][1] - self.bounds[j][0]
                 ) * rng.random() + self.bounds[j][0]
+=======
+                a = (self.bounds[j][1] - self.bounds[j][0]) * rng.random()+ self.bounds[j][0]    
+>>>>>>> 4f0a568c987282d6eff188f28346c6a6538a43a0
                 l.append(a)
             L.append(l)
         return L
 
     def center(self):
         """Returns  a list containing the center of every segment of the box
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4f0a568c987282d6eff188f28346c6a6538a43a0
         Returns:
             Center type(list): a list of numbers
         """
@@ -110,6 +154,7 @@ class BoxWindow:
 class UnitBoxWindow(BoxWindow):
     def __init__(self, center, dimension):
         """Represents a box in any dimension. The lenght of every segment in the box is equal to 1, centered on `center`
+<<<<<<< HEAD
         Args:
             dimension (int): the dimension of the box
             center (list): List containing the center of every segment in the box.
@@ -121,3 +166,19 @@ class UnitBoxWindow(BoxWindow):
             for i in range(dimension):
                 L.append([center[i] - 0.5, center[i] + 0.5])
         super().__init__(L)
+=======
+
+        Args:
+            dimension (int): the dimension of the box 
+            center (list): List containing the center of every segment in the box. Defaults to None.
+        """
+        L = []
+        if center is None : 
+            center = np.zeros(dimension)
+        else :
+            for i in range(dimension):
+                L.append([center[i] - 0.5, center[i] + 0.5])
+        super().__init__(L)
+
+
+>>>>>>> 4f0a568c987282d6eff188f28346c6a6538a43a0
