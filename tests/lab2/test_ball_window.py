@@ -24,11 +24,7 @@ from sdia_python.lab2.ball_window import BallWindow
         (
             [0, 5, -1.45, 3.14],
             np.sqrt(2),
-<<<<<<< HEAD
             "BallWindow: center=[0.00 5.00 -1.45 3.14], radius=1.41",
-=======
-            "BallWindow: center=[0.00 5.00 -1.45 3.14], radius=1.41"
->>>>>>> 4f0a568c987282d6eff188f28346c6a6538a43a0
         ),
     ],
 )
@@ -44,16 +40,7 @@ def example_ball_window():
 
 
 @pytest.mark.parametrize(
-<<<<<<< HEAD
     "points, expected", [([0, 0], False), ([0, 1], True), ([5, 6], False),],
-=======
-    "points, expected",
-    [
-        ([0, 0], False),
-        ([0, 1], True),
-        ([5, 6], False),
-    ],
->>>>>>> 4f0a568c987282d6eff188f28346c6a6538a43a0
 )
 def test_indicator(example_ball_window, points, expected):
     ball = example_ball_window
@@ -69,8 +56,4 @@ def test_indicator(example_ball_window, points, expected):
     ],
 )
 def test_volume(ball, expected):
-<<<<<<< HEAD
     assert (ball.volume()) == expected
-=======
-    assert (ball.volume()) == expected
->>>>>>> 4f0a568c987282d6eff188f28346c6a6538a43a0
