@@ -56,16 +56,9 @@ class BallWindow:
         """
         n = len(self.center)
         R = self.radius
-        return 2 * (pi) ** (n / 2) * R ** (n - 1) / gamma(n / 2)
+        return 2 * (3.14) ** (n / 2) * R ** (n - 1) / gamma(n / 2)
 
-    def volume(self):
-         """ Returns the value of the Volume of the ball window
-        Args  : 
-            radius : type(float) : the radius of the ball window.
-            center : type(float array) : coordinates of the center of the ball window.
-        Returns :
-            Volume type(float) : The volume of the ball window.
-        """
-        n = len(self.center)
-        R = self.radius
-        return (np.pi) ** (n / 2) * R ** (n) / gamma(n / 2 + 1)
+    class UnitBallWindow(BallWindow):
+        def __init__(self, center):
+
+            super().__init__(center, 1)

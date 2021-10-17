@@ -29,10 +29,10 @@ class BoxWindow:
         return "BoxWindow : " + ch
 
     def __len__(self):
-        """ Returns the dimension of the box.
+        """ Returns the number of points in the box.
         Args : type(int) : dimension of the box.
         """
-        return len(self.bounds)
+        return 2*len(self.bounds)
 
     def __contains__(self, sub_box):
         """ Return True if the box contains a given sub_box  
@@ -55,16 +55,15 @@ class BoxWindow:
         """Returns the dimension of our box 
         Args : type(int) The dimension of the box 
         """
-        return len(self)
+        return len(self.bounds)
          
 
     def volume(self):
         """Computes the volume of our box, by mutliplying the difference between the arguments of every subsegment
         """
         
-        v = 0 if len(self) == 0 else 1
-        v = np.prod(np.diff(self.bounds, axis=1))
-        
+        return np.prod(np.diff(self.bounds, axis=1))
+    
     def indicator_function(self, point):
         """Return True if a point is contained in the box
 
@@ -89,14 +88,14 @@ class BoxWindow:
             n (int, optional): [description]. Defaults to 1.
             rng ([type], optional): [description]. Defaults to None.
         """
-        rng = get_random_number_generator
-        n = len(self.bounds)
-        args = self.bounds
+        rng = get_random_number_generator(rng)
         L = []
-        for i in range(0, n):
-            a = rng.uniform(args[i][0], args[i][1])
-            L.append(a)
-        L = np.array(L)
+        for i in range(n):
+            l = []
+            for i in range(0, len(self.bounds)):
+                a = (self.bounds[j][1] - self.bounds[j][0]) * rng.random()+ self.bounds[j][0]    
+                l.append(a)
+            L.append(l)
         return L
 
     def center(self):
@@ -105,13 +104,7 @@ class BoxWindow:
         Returns:
             Center type(list): a list of numbers
         """
-        center = []
-        n = len(self.bounds)
-        for i in range(n):
-            b_i = self.bounds[i][1]
-            a_i = self.bounds[i][0]
-            center.append((b_i + a_i) / 2)
-        return center
+        return np.mean(self.bounds, axis=1)
 
 
 class UnitBoxWindow(BoxWindow):
