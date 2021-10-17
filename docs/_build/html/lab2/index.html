@@ -1,0 +1,303 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Lab 2 &#8212; sdia-python  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Lab 1" href="../lab1/index.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="lab-2">
+<h1>Lab 2<a class="headerlink" href="#lab-2" title="Permalink to this headline">¶</a></h1>
+<section id="module-sdia_python.lab2.box_window">
+<span id="boxwindow"></span><h2>BoxWindow<a class="headerlink" href="#module-sdia_python.lab2.box_window" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="sdia_python.lab2.box_window.BoxWindow">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">sdia_python.lab2.box_window.</span></span><span class="sig-name descname"><span class="pre">BoxWindow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bounds</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdia_python/lab2/box_window.html#BoxWindow"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdia_python.lab2.box_window.BoxWindow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Represents a box in any dimension by writing it as a product of segments.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="sdia_python.lab2.box_window.BoxWindow.center">
+<span class="sig-name descname"><span class="pre">center</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdia_python/lab2/box_window.html#BoxWindow.center"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdia_python.lab2.box_window.BoxWindow.center" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns  a list containing the center of every segment of the box
+:returns: a list of numbers
+:rtype: Center type(list)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdia_python.lab2.box_window.BoxWindow.dimension">
+<span class="sig-name descname"><span class="pre">dimension</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdia_python/lab2/box_window.html#BoxWindow.dimension"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdia_python.lab2.box_window.BoxWindow.dimension" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the dimension of our box
+Args : type(int) The dimension of the box</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdia_python.lab2.box_window.BoxWindow.indicator_function">
+<span class="sig-name descname"><span class="pre">indicator_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">point</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdia_python/lab2/box_window.html#BoxWindow.indicator_function"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdia_python.lab2.box_window.BoxWindow.indicator_function" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if a point is contained in the box</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>point</strong> (<em>np.array</em>) – The point to be tested</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdia_python.lab2.box_window.BoxWindow.rand">
+<span class="sig-name descname"><span class="pre">rand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rng</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdia_python/lab2/box_window.html#BoxWindow.rand"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdia_python.lab2.box_window.BoxWindow.rand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate <code class="docutils literal notranslate"><span class="pre">n</span></code> points uniformly at random inside the <a class="reference internal" href="#sdia_python.lab2.box_window.BoxWindow" title="sdia_python.lab2.box_window.BoxWindow"><code class="xref py py-class docutils literal notranslate"><span class="pre">BoxWindow</span></code></a>.
+:param n: [description]. Defaults to 1.
+:type n: int, optional
+:param rng: [description]. Defaults to None.
+:type rng: [type], optional</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdia_python.lab2.box_window.BoxWindow.volume">
+<span class="sig-name descname"><span class="pre">volume</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdia_python/lab2/box_window.html#BoxWindow.volume"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdia_python.lab2.box_window.BoxWindow.volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the volume of our box, by mutliplying the difference between the arguments of every subsegment</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sdia_python.lab2.box_window.UnitBoxWindow">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">sdia_python.lab2.box_window.</span></span><span class="sig-name descname"><span class="pre">UnitBoxWindow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">center</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dimension</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdia_python/lab2/box_window.html#UnitBoxWindow"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdia_python.lab2.box_window.UnitBoxWindow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#sdia_python.lab2.box_window.BoxWindow" title="sdia_python.lab2.box_window.BoxWindow"><code class="xref py py-class docutils literal notranslate"><span class="pre">sdia_python.lab2.box_window.BoxWindow</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="sdia_python.lab2.box_window.UnitBoxWindow.center">
+<span class="sig-name descname"><span class="pre">center</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sdia_python.lab2.box_window.UnitBoxWindow.center" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns  a list containing the center of every segment of the box
+:returns: a list of numbers
+:rtype: Center type(list)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdia_python.lab2.box_window.UnitBoxWindow.dimension">
+<span class="sig-name descname"><span class="pre">dimension</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sdia_python.lab2.box_window.UnitBoxWindow.dimension" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the dimension of our box
+Args : type(int) The dimension of the box</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdia_python.lab2.box_window.UnitBoxWindow.indicator_function">
+<span class="sig-name descname"><span class="pre">indicator_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">point</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sdia_python.lab2.box_window.UnitBoxWindow.indicator_function" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return True if a point is contained in the box</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>point</strong> (<em>np.array</em>) – The point to be tested</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdia_python.lab2.box_window.UnitBoxWindow.rand">
+<span class="sig-name descname"><span class="pre">rand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rng</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sdia_python.lab2.box_window.UnitBoxWindow.rand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate <code class="docutils literal notranslate"><span class="pre">n</span></code> points uniformly at random inside the <a class="reference internal" href="#sdia_python.lab2.box_window.BoxWindow" title="sdia_python.lab2.box_window.BoxWindow"><code class="xref py py-class docutils literal notranslate"><span class="pre">BoxWindow</span></code></a>.
+:param n: [description]. Defaults to 1.
+:type n: int, optional
+:param rng: [description]. Defaults to None.
+:type rng: [type], optional</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdia_python.lab2.box_window.UnitBoxWindow.volume">
+<span class="sig-name descname"><span class="pre">volume</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sdia_python.lab2.box_window.UnitBoxWindow.volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the volume of our box, by mutliplying the difference between the arguments of every subsegment</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="ballwindow">
+<h2>BallWindow<a class="headerlink" href="#ballwindow" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-sdia_python.lab2.ball_window"></span><dl class="py class">
+<dt class="sig sig-object py" id="sdia_python.lab2.ball_window.BallWindow">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">sdia_python.lab2.ball_window.</span></span><span class="sig-name descname"><span class="pre">BallWindow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">center</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdia_python/lab2/ball_window.html#BallWindow"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdia_python.lab2.ball_window.BallWindow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>class BallWindow contains balls defined by centers and radius</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="sdia_python.lab2.ball_window.BallWindow.dimension">
+<span class="sig-name descname"><span class="pre">dimension</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdia_python/lab2/ball_window.html#BallWindow.dimension"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdia_python.lab2.ball_window.BallWindow.dimension" title="Permalink to this definition">¶</a></dt>
+<dd><p>ball dimensions
+:returns: dimension
+:rtype: int</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdia_python.lab2.ball_window.BallWindow.indicator">
+<span class="sig-name descname"><span class="pre">indicator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">point</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdia_python/lab2/ball_window.html#BallWindow.indicator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdia_python.lab2.ball_window.BallWindow.indicator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns True if a point of interest is inside the ball window.
+Args :</p>
+<blockquote>
+<div><p>point : type(float array) : coordinates of the point test.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns :</dt><dd><p>True if the point of interest is inside the ball window</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdia_python.lab2.ball_window.BallWindow.volume">
+<span class="sig-name descname"><span class="pre">volume</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdia_python/lab2/ball_window.html#BallWindow.volume"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdia_python.lab2.ball_window.BallWindow.volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the value of the volume of the ball window
+Args  :</p>
+<blockquote>
+<div><p>radius : type(float) : the radius of the ball window.
+center : type(float array) : coordinates of the center of the ball window.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns :</dt><dd><p>volume type(float) : The volume of the ball window.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sdia_python.lab2.ball_window.UnitBallWindow">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">sdia_python.lab2.ball_window.</span></span><span class="sig-name descname"><span class="pre">UnitBallWindow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">center</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdia_python/lab2/ball_window.html#UnitBallWindow"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdia_python.lab2.ball_window.UnitBallWindow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#sdia_python.lab2.ball_window.BallWindow" title="sdia_python.lab2.ball_window.BallWindow"><code class="xref py py-class docutils literal notranslate"><span class="pre">sdia_python.lab2.ball_window.BallWindow</span></code></a></p>
+<p>representing a ball of radius==1</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="sdia_python.lab2.ball_window.UnitBallWindow.dimension">
+<span class="sig-name descname"><span class="pre">dimension</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sdia_python.lab2.ball_window.UnitBallWindow.dimension" title="Permalink to this definition">¶</a></dt>
+<dd><p>ball dimensions
+:returns: dimension
+:rtype: int</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdia_python.lab2.ball_window.UnitBallWindow.indicator">
+<span class="sig-name descname"><span class="pre">indicator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">point</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sdia_python.lab2.ball_window.UnitBallWindow.indicator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns True if a point of interest is inside the ball window.
+Args :</p>
+<blockquote>
+<div><p>point : type(float array) : coordinates of the point test.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns :</dt><dd><p>True if the point of interest is inside the ball window</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdia_python.lab2.ball_window.UnitBallWindow.volume">
+<span class="sig-name descname"><span class="pre">volume</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sdia_python.lab2.ball_window.UnitBallWindow.volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the value of the volume of the ball window
+Args  :</p>
+<blockquote>
+<div><p>radius : type(float) : the radius of the ball window.
+center : type(float array) : coordinates of the center of the ball window.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns :</dt><dd><p>volume type(float) : The volume of the ball window.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">sdia-python</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../lab1/index.html">Lab 1</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Lab 2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-sdia_python.lab2.box_window">BoxWindow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ballwindow">BallWindow</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="../lab1/index.html" title="previous chapter">Lab 1</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, Guillaume Gautier.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/lab2/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

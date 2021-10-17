@@ -1,0 +1,161 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Lab 1 &#8212; sdia-python  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Lab 2" href="../lab2/index.html" />
+    <link rel="prev" title="Welcome to sdi-python’s documentation!" href="../index.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="module-sdia_python.lab1.functions">
+<span id="lab-1"></span><h1>Lab 1<a class="headerlink" href="#module-sdia_python.lab1.functions" title="Permalink to this headline">¶</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="sdia_python.lab1.functions.is_unique">
+<span class="sig-prename descclassname"><span class="pre">sdia_python.lab1.functions.</span></span><span class="sig-name descname"><span class="pre">is_unique</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdia_python/lab1/functions.html#is_unique"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdia_python.lab1.functions.is_unique" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check that <code class="docutils literal notranslate"><span class="pre">x</span></code> has no duplicate elements.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>x</strong> (<em>list</em>) – elements to be compared.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True if <code class="docutils literal notranslate"><span class="pre">x</span></code> has duplicate elements, otherwise False</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdia_python.lab1.functions.triangle_shape">
+<span class="sig-prename descclassname"><span class="pre">sdia_python.lab1.functions.</span></span><span class="sig-name descname"><span class="pre">triangle_shape</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fillchar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'x'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spacechar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'</span> <span class="pre">'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sdia_python/lab1/functions.html#triangle_shape"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sdia_python.lab1.functions.triangle_shape" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a string made of <code class="docutils literal notranslate"><span class="pre">fillchar</span></code> and <code class="docutils literal notranslate"><span class="pre">spacechar``representing</span> <span class="pre">a</span> <span class="pre">triangle</span> <span class="pre">shape</span> <span class="pre">of</span> <span class="pre">height</span> <span class="pre">``n</span></code>.</p>
+<p>For n=0, return <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>.</p>
+<div class="highlight-python3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sdia_python.lab1.functions</span> <span class="kn">import</span> <span class="n">triangle_shape</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">triangle_shape</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="n">fillchar</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">spacechar</span><span class="o">=</span><span class="s2">&quot;_&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>_____x_____
+____xxx____
+___xxxxx___
+__xxxxxxx__
+_xxxxxxxxx_
+xxxxxxxxxxx
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n</strong> (<em>int</em>) – height of the triangle.</p></li>
+<li><p><strong>fillchar</strong> (<em>str</em><em>, </em><em>optional</em>) – Defaults to “x”.</p></li>
+<li><p><strong>spacechar</strong> (<em>str</em><em>, </em><em>optional</em>) – Defaults to ” “.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>string representation of the triangle.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">sdia-python</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Lab 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab2/index.html">Lab 2</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="../index.html" title="previous chapter">Welcome to sdi-python’s documentation!</a></li>
+      <li>Next: <a href="../lab2/index.html" title="next chapter">Lab 2</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, Guillaume Gautier.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/lab1/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
