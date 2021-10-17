@@ -1,64 +1,82 @@
-from sdia_python.lab2.utils import get_random_number_generator
 import numpy as np
-from scipy.special import gamma 
+from math import gamma
 
 class BallWindow:
+    """class BallWindow contains balls defined by centers and radius"""
     def __init__(self, center, radius):
-        """ create a new ball window
-        Args : 
-            center : type(float array) : coordinates of the center of the ball window.
-            radius : type(float) : radius of the ball window 
+        """initialization
+        Args:
+            center (array): the center
+            R (float): radius of the ball
         """
-        self.center = center
+        try:
+            assert radius >= 0
+        except:
+            print("Enter a positive radius")
+
+        try:
+            # This will detect problems with center
+            assert len(center) > 0
+        except:
+            print("Enter a valid center")
+        self.center = np.array(center, dtype = np.float32)
         self.radius = radius
 
-    def dimension(self):
-        """Returns the dimension of the ball window 
-        Args :
-            center : type(float array)  : coordinates of the center of the ball window.
-        Returns :
-            dimension : type(int) : The length of the center of the ball window.
+    def __str__(self):
+        """ print the ball
+        Returns:
+            str: BallWindow: center=, radius=
         """
-        return len(self.center)
 
-    def distance_to_center(self, point):
-        """ Returns the distance between the center of the ball window and a point of interest
-        Args: 
-            point : type(float array) : coordinates of the point test.
-        Returns : 
-            distance_to_center : type(float) : the distance between the center and the given point of interest.
-        """
-        if len(point) != len(self.center) :
-            raise ValueError("the size of the point is different from the len of the ball")
-        else : 
-            return np.linalg.norm(point-self.center)
-    def __contains__(self, point):
+        float_formatter = "{:.2f}".format
+        np.set_printoptions(formatter={"float_kind": float_formatter})
+        return (
+            "BallWindow: "
+            + "center="
+            + str(self.center)
+            + ", radius="
+            + str("%.2f" % round(self.radius, 2))
+        )
+
+    def indicator(self, point):
         """ Returns True if a point of interest is inside the ball window.
         Args : 
             point : type(float array) : coordinates of the point test.
         Returns : 
             True if the point of interest is inside the ball window
         """
-        if len(point) != len(self.center) :
-            raise ValueError("the size of the point is different from the len of the ball")
-        else : 
-            if self.distance_to_center(point) < self.radius : 
-                return True
-            return False
+        try:
+            assert self.dimension() == len(point)
+        except:
+            print("dimension error")
+        return np.sum((point - self.center) ** 2) <= self.radius ** 2
 
-    def surface(self):
-        """ Returns the value of the surface of the ball window
+
+
+    def dimension(self):
+        """ball dimensions
+        Returns:
+            int: dimension
+        """
+        return len(self.center)
+
+    def volume(self):
+        """ Returns the value of the volume of the ball window
         Args  : 
             radius : type(float) : the radius of the ball window.
             center : type(float array) : coordinates of the center of the ball window.
         Returns :
-            surface type(float) : The surface of the ball window.
+            volume type(float) : The volume of the ball window.
         """
-        n = len(self.center)
-        R = self.radius
-        return 2 * (3.14) ** (n / 2) * R ** (n - 1) / gamma(n / 2)
+        return (
+            (np.pi ** (self.dimension() / 2))
+            * (self.radius ** self.dimension())
+            / (gamma(self.dimension() / 2 + 1))
+        )
 
-    class UnitBallWindow(BallWindow):
-        def __init__(self, center):
+class UnitBallWindow(BallWindow):
+    """representing a ball of radius==1
+    """
+    def __init__(self, center):
 
-            super().__init__(center, 1)
+        super().__init__(center, radius=1)
