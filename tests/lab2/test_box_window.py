@@ -1,82 +1,59 @@
 import numpy as np
-from math import gamma
+import pytest
 
-class BallWindow:
-    """class BallWindow contains balls defined by centers and radius"""
-    def __init__(self, center, R):
-        """initialization
-        Args:
-            center (array): the center
-            R (float): radius of the ball
-        """
-        try:
-            assert R >= 0
-        except:
-            print("Please submit a positive radius")
+from sdia_python.lab2.box_window import BoxWindow
 
-        try:
-            # This will detect problems with center
-            assert len(center) > 0
-        except:
-            print("Please submit a valid center")
-        self.center = np.array(center, dtype = np.float32)
-        self.R = R
 
-    def __str__(self):
-        """ print the ball
-        Returns:
-            str: BallWindow: center=..., radius=...
-        """
+def test_raise_type_error_when_something_is_called():
+    with pytest.raises(TypeError):
+        # call_something_that_raises_TypeError()
+        raise TypeError()
 
-        float_formatter = "{:.2f}".format
-        np.set_printoptions(formatter={"float_kind": float_formatter})
-        return (
-            "BallWindow: "
-            + "center="
-            + str(self.center)
-            + ", radius="
-            + str("%.2f" % round(self.R, 2))
-        )
+@pytest.mark.parametrize(
+    "point, expected",[
+        (np.array([0, 0]), True),
+        (np.array([2.5, 2.5]), True),
+        (np.array([-1, 5]), False), 
+        (np.array([10, 3]), False),
+     ],
+)
+def test_indicator_function(point, expected):
+    box = BoxWindow([[0, 5], [0, 5]])
+    is_in = box.indicator_function(point)
+    assert is_in == expected
 
-    def indicator(self, point):
-        r"""True if the point in the ball
-        Args:
-            point (list): point
-        Returns:
-            bool: True if the point in the ball
-        """
-        try:
-            assert self.dimension() == len(point)
-        except:
-            print("dimension error")
-        return np.sum((point - self.center) ** 2) <= self.R ** 2
 
-        # s = 0
-        # for i in range(self.dimension):
-        #    s += (point[i] - self.center[i]) ** 2
-        # if s <= self.radius ** 2:
-        #    return True
-        # return False
+# ================================
+# ==== WRITE YOUR TESTS BELOW ====
+# ================================
+@pytest.mark.parametrize(
+    "bounds, expected", [
+        (np.array([[2., 4.], [1., 3.]]), 4.0),
+        (np.array([[1., 5.], [0., 2.], [10., 20.]]), 80.0),
+        ],
+)
+def test_box_volume(bounds, expected):
+    assert BoxWindow(bounds).volume() == expected
 
-    def dimension(self):
-        """the dimension of the ball
-        Returns:
-            int: dimension
-        """
-        return len(self.center)
+@pytest.mark.parametrize(
+    "bounds, expected", [
+        
+        (np.array([[0.1, 4], [1, 3.5]]), 2),
+        (np.array([[0, 5], [-0.33, 2.155], [-12, 15]]), 3,),
+        ],
+)
+def test_box_dimension(bounds, expected):
+    assert BoxWindow(bounds).dimension() == expected
 
-    def volume(self):
-        """The volume of the ball
-        Returns:
-            float: volume of the ball
-        """
-        return (
-            (np.pi ** (self.dimension() / 2))
-            * (self.R ** self.dimension())
-            / (gamma(self.dimension() / 2 + 1))
-        )
+    
+@pytest.mark.parametrize(
+    "box, expected",
+    [
+        (np.array([[1, 2], [0, 2]]), np.array([1.5, 1.])),
+        (np.array([[0, -4], [4, 5], [1, 3]]), np.array([-2. ,  4.5,  2. ])),
+        (np.array([[1, 2], [0, 2], [-4, 4], [1, 2]]), np.array([1.5, 1. , 0. , 1.5])),
+    ],
+)
+def test_center(box, expected):
+    assert (BoxWindow(box).center() == expected).all()
 
-class UnitBallWindow(BallWindow):
-    def __init__(self, center):
-
-        super().__init__(center, R=1)
