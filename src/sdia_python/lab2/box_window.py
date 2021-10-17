@@ -40,8 +40,10 @@ class BoxWindow:
         """
         Box_bounds = self.bounds
         sub_box_bounds = sub_box.bounds
-        if len(sub_box) != len(self):
-            raise ValueError("the size of the sub_box is different from that of the box")
+        try:
+            assert len(sub_box) == len(self)
+        except:
+            print("the size of the sub_box is different from that of the box")
         for i in range(0, len(point)):
             a = sub_box_bounds[i][0]
             b = sub_box_bounds[i][1]
@@ -72,8 +74,10 @@ class BoxWindow:
         """
         Box_bounds = self.bounds
         n = len(Box_bounds)
-        if len(point) != len(self):
-            raise ValueError("the size of the point is different from the len of the box")
+        try:
+            assert len(point) == len(self)
+        except:
+            print("the size of the point is different from the len of the box")
         for i in range(0, n):
             a = Box_bounds[i][1]
             b = Box_bounds[i][0]
